@@ -16,7 +16,17 @@ public class StudentJdbcTemplateRepository implements StudentRepository {
 
     @Override
     public List<Student> findAll() {
-//        jdbcTemplate.query("select * from student",(rs, rowNum) -> rs.getInt())
-        return List.of();
+        return jdbcTemplate.query("select * from student", (rs, rowNum) ->
+                new Student(rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getInt("age"),
+                        rs.getString("address")));
+    }
+
+    @Override
+    public int insertStudent(Student student) {
+        return jdbcTemplate.update(
+                "Insert into students (name, age, address) values (?, ?, ?)",
+                student.getName(), student.getAge(), student.getAddress());
     }
 }
