@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -26,6 +28,12 @@ class StudentJdbcTemplateRepositoryTest {
 
     @Test
     void selectTest() {
-
+        List<Student> list = studentRepository.findAll();
+        for (Student student : list) {
+            System.out.print(student.getId());
+            System.out.print(student.getName());
+            System.out.print(student.getAge());
+            System.out.println(student.getAddress());
+        }
     }
 }
