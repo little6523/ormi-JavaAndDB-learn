@@ -2,6 +2,7 @@ package com.ormispring.springmybatis.controller;
 
 import com.ormispring.springmybatis.domain.Students;
 import com.ormispring.springmybatis.service.StudentService;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class StudentController {
         return studentService.getStudents(id);
     }
 
-    @PostMapping("/students")   // POST /students {"name": "이름", "age": 20, "address": "서울시"}
+    @PostMapping(value = "/students", produces = MediaType.APPLICATION_JSON_VALUE)   // POST /students {"name": "이름", "age": 20, "address": "서울시"}
     public String addStudent(@RequestBody Students students) {
         // INSERT
         studentService.saveStudent(students);
