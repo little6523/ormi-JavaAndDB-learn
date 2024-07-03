@@ -1,0 +1,20 @@
+package com.ormispring.springdatajpaexample.service;
+
+import com.ormispring.springdatajpaexample.domain.Students;
+import com.ormispring.springdatajpaexample.repository.StudentRepository;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class StudentService {
+    private final StudentRepository studentRepository;
+
+    public StudentService(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
+
+    public List<Students> selectAllStudents() {
+        return studentRepository.findByName("이름");
+    }
+}
