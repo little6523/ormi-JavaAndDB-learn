@@ -1,5 +1,6 @@
 package com.ormispring.springdatajpaexample.service;
 
+import com.ormispring.springdatajpaexample.domain.RoleType;
 import com.ormispring.springdatajpaexample.domain.Students;
 import com.ormispring.springdatajpaexample.repository.StudentRepository;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,7 @@ public class StudentService {
     }
 
     public Students insertStudents(Students students) {
+        RoleType.ADMIN.name(); // "ADMIN"
         return studentRepository.save(students);
     }
 }

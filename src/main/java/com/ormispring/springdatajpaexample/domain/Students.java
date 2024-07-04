@@ -2,6 +2,7 @@ package com.ormispring.springdatajpaexample.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
 @Entity
